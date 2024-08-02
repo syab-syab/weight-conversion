@@ -6,10 +6,20 @@ const Wrapper = styled.header`
   color: white;
 `
 
+const Title = styled.a`
+  color: white;
+  margin: 0;
+  text-decoration: none;
+  font-size: 4rem;
+`
+
+
 const Header = () => {
   return (
     <Wrapper>
-      重さ変換
+      <Title href='https://homemade-apps.vercel.app/' target='_blank'>
+        重さ変換
+      </Title>
     </Wrapper>
   )
 }

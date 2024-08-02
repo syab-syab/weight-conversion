@@ -6,8 +6,49 @@ import pound from '../functions/pound'
 import styled from 'styled-components'
 
 
+
 const Wrapper = styled.main`
   background: #FF4191;
+  padding: 4rem 0;
+  height: 100vh;
+  @media (max-width: 400px) {
+    padding: 5rem 2rem;
+  }
+`
+
+// Selectは流用
+const Select = styled.select`
+  background: #fff078;
+  font-size: 3rem;
+  height: 4rem;
+  border: 0.3rem solid black;
+  &:disabled {
+    color: black;
+    background: #fff078;
+  }
+`
+
+// Inputは流用
+const Input = styled.input`
+  font-size: 3rem;
+  height: 4rem;
+  width: 20rem;
+  border: 0.3rem solid black;
+  border-right: none;
+`
+
+// Buttonは流用
+const Button = styled.button`
+  font-size: 3rem;
+  background: #e293b4;
+  color: white;
+  cursor: pointer;
+`
+
+
+const Arrow = styled.div`
+  font-size: 3rem;
+  font-weight: bold;
 `
 
 const Main = () => {
@@ -31,11 +72,15 @@ const Main = () => {
   const [originUnit, setOriginUnit] = useState<number>(1)
 
   const calc = [milligram, gram, kilogram, pound]
+
+  const copyConversionValue = (val: string): void => {
+    navigator.clipboard.writeText(val)
+  }
   return (
     <Wrapper>
       <h1>重さの単位変換</h1>
       <div>
-        <select defaultValue={lenUnit} onChange={(e) => setLenUnit(Number(e.target.value))}>
+        <Select defaultValue={lenUnit} onChange={(e) => setLenUnit(Number(e.target.value))}>
           {
             lengthUnit.map((u, index) => {
               return (
@@ -43,10 +88,12 @@ const Main = () => {
               )
             })
           }
-        </select>
-        <p>
-          <input type="text" onChange={(e) => toggleUnitVal(e)} value={unitVal} />
-          <select defaultValue={lenUnit} onChange={(e) => setOriginUnit(Number(e.target.value))}>
+        </Select>
+      </div>
+      <div>
+      <p>
+          <Input type="text" onChange={(e) => toggleUnitVal(e)} value={unitVal} />
+          <Select defaultValue={lenUnit} onChange={(e) => setOriginUnit(Number(e.target.value))}>
             {
               lengthUnit.map((u, index) => {
                 return (
@@ -54,19 +101,27 @@ const Main = () => {
                 )
               })
             }
-          </select> 
+          </Select> 
         </p>
 
-        <br />
-        <button onClick={() => setUnitVal("")}>クリア</button>
+        <Button onClick={() => setUnitVal("")}>クリア</Button>
       </div>
-      <div>
+      <Arrow>
         <p>↓↓↓</p>
+      </Arrow>
+      <div>
         <p>
-          <input type="text"
+          <Input
+            type="text"
+            readOnly={true}
             value={String(calc[lenUnit](originUnit, unitVal))}
-          />{lengthUnit[lenUnit]}
+          />
+          <Select disabled={true}>
+            <option>{lengthUnit[lenUnit]}</option>
+            <option>ポンド</option>
+          </Select>
         </p>
+        <Button onClick={() => copyConversionValue(String(calc[lenUnit](originUnit, unitVal)))}>コピー</Button>
       </div>
     </Wrapper>
   )
