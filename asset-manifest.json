@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/weight-conversion/static/css/main.bb887869.css",
+    "main.js": "/weight-conversion/static/js/main.465a2367.js",
+    "static/js/453.fe8b592e.chunk.js": "/weight-conversion/static/js/453.fe8b592e.chunk.js",
+    "index.html": "/weight-conversion/index.html",
+    "main.bb887869.css.map": "/weight-conversion/static/css/main.bb887869.css.map",
+    "main.465a2367.js.map": "/weight-conversion/static/js/main.465a2367.js.map",
+    "453.fe8b592e.chunk.js.map": "/weight-conversion/static/js/453.fe8b592e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb887869.css",
+    "static/js/main.465a2367.js"
+  ]
+}
