@@ -78,7 +78,6 @@ const Main = () => {
   }
   return (
     <Wrapper>
-      <h1>重さの単位変換</h1>
       <div>
         <Select defaultValue={lenUnit} onChange={(e) => setLenUnit(Number(e.target.value))}>
           {
