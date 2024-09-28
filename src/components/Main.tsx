@@ -22,6 +22,7 @@ const Select = styled.select`
   font-size: 3rem;
   height: 4rem;
   border: 0.3rem solid black;
+  border-radius: 0;
   &:disabled {
     color: black;
     background: #fff078;
@@ -34,6 +35,7 @@ const Input = styled.input`
   height: 4rem;
   width: 20rem;
   border: 0.3rem solid black;
+  border-radius: 0;
   border-right: none;
 `
 
