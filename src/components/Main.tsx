@@ -12,7 +12,7 @@ const Wrapper = styled.main`
   padding: 4rem 0;
   height: 100vh;
   @media (max-width: 400px) {
-    padding: 5rem 2rem;
+    padding-top: 5rem;
   }
 `
 
